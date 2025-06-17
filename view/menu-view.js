@@ -8,31 +8,47 @@ export default class menu_controller {
 
     constructor() {
     //// Having this code in a constructor will allow you to regenerate the menu after a run
+
     this.splash_logo = false;
     this.menu_container = false;
     this.play_button = false;
     this.settings_button = false;
+    this.container_pointer = document.getElementById("container");
+    
     
     this.createLogo();
     this.createContainer();
     this.createButtons();
+    this.styleButtons();
     
-    menu_container.append(this.splash_logo, this.play_button, this.settings_button)
-    document.body.append(menu_container);
+    document.getElementById("placeholder").remove(); // Remove placeholder text saying JS might be borked
+    this.menu_container.append(this.splash_logo, this.play_button, this.settings_button)
+    this.container_pointer.append(this.menu_container);
 
     }   
 
     createLogo() {
-        this.splash_logo = document.createElement("img"); splash_logo.src = "assets/superlowquality logo.png";
+        this.splash_logo = document.createElement("img"); this.splash_logo.src = "assets/superlowquality logo.png";
     }
 
     createContainer() {
-        this.menu_container = document.createElement("div"); menu_container.id = "menu_container"; menu_container.classList.add("menu");
+        this.menu_container = document.createElement("div"); this.menu_container.id = "menu_container"; this.menu_container.classList.add("menu");
     }
     
     createButtons() {
-        this.play_button = document.createElement("button"); play_button.textContent = "Play"; play_button.id = "play_button"
-        this.settings_button = document.createElement("button"); settings_button.textContent = "Settings"; settings_button.id = "settings_button"
+        this.play_button = document.createElement("button"); this.play_button.textContent = ""; this.play_button.id = "play_button"
+        this.settings_button = document.createElement("button"); this.settings_button.textContent = ""; this.settings_button.id = "settings_button"
+    }
+
+    styleButtons() {
+        let a = this.play_button.style;
+        let b = this.settings_button.style;
+        a.backgroundImage = "url('assets/PlayButton.png')";
+        a.width = "400px";
+        a.height = "150px";
+        b.backgroundImage = "url('assets/SettingsButton.png')";
+        b.width = "400px";
+        b.height = "150px";
     }
 
     createMoreSettings() {
@@ -40,11 +56,7 @@ export default class menu_controller {
     }
 
     destroy() {
-        document.body.replaceChild(menu_container, "")
+        document.getElementById("container").replace(menu_container, "")
     }
-    apply_assets() {
-        // grab the assets from the "graphics" view file (images)
-        // Apply to buttons
-        // Add background graphic
-    }
+
 };
