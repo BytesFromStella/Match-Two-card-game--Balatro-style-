@@ -1,0 +1,1 @@
+game_state, current_location = false

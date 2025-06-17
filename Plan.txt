@@ -1,0 +1,59 @@
+12.06.25:
+Pair match card game.
+
+You need to make it in MVC and not use any AI to write code. 
+Can use it to figure out things like logic or syntax.
+
+- Make a board with x*x cards (must be an even number for pairing. 
+  Using at least one even number when selecting board size should prevent this)
+- Each card is face-down, and flips when revealed (preferably with an animation, 
+  then a green/red background/border/overlay on the card)
+- There should always be two of each card. No rules against multiple though
+- Track the game state at all times.
+
+- Only two cards should be in a "flipped"-state at one time (unless cleared).
+- If they're equal, let them stay flipped or some other solution.
+- If not equal, flip them back face-down (Maybe play an "wrong" sound effect)
+
+- When all cards are cleared, the player wins and you get to see how many moves have been executed
+- Make the player able to hit "retry" after finishing their game.
+- Show how few moves you're able to do, what "par" would be and how "low" would be. 
+  Basically giving the player a rank from I (Impossible), SS (perfect), 
+  S (Great), A (Good), B (Decent), C (Bad) and finally D (Horrible) tier
+  
+The UI should be simple and straightforward, but using *some* styling to make it look... well, not 80s style.
+A secondary objective could be to physically draw the UI. Is it a good idea? Hell yeah
+
+Potential additional features could be this:
+Endless mode:
+Includes powerups, things you can buy to improve your run in endless mode. Suggestions:
+- Permaflip two cards
+- Tempoarily reveal all cards at the start of the round for 2 seconds
+- Grants a shield that prevents your rank from decreasing ONCE. Upgrade every 3 rounds.
+
+
+
+
+Development process:
+
+User interaction process would go like this:
+User loads the page -> Splash/welcome screen appears (Menu, title etc.)
+-> Menu interactions like difficulty (with custom) and settings
+-> Load the cards, start timer -> state=select, Check for user input -> Recieve input ->
+-> Check card parameters -> state=flipping, Approve/deny the transaction
+-> Flip/don't flip cards -> state=select, return control to the player
+-> State=menu, Board empty
+
+
+Create the fundamental file and folder structure required for MVC and
+Create all the potentially necessary files:
+- Core (Connects everything together and kicks things into function)
+	Trackers like stats and rank is processed here
+- Menu (Contains all menu logic and options frontend)
+- Mode (Contains easy, medium, hard, insane and custom modes)
+- Cards (Contains all the references to card front images that you can match)
+- Items (Items for the endless mode)
+- Graphics (Simple JS graphics or handcrafted drawings BY MEEEEEEE)
+
+-----------------------------------
+-----------------------------------
