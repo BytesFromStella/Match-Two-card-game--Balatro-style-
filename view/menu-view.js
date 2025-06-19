@@ -1,6 +1,6 @@
 // Menu is responsible for all UI
 
-export default class menu_controller {
+export default class menu_view {
     // Create the menu container
     // Put the menu container into the document
     // Create the menu objects
@@ -22,13 +22,22 @@ export default class menu_controller {
     this.styleButtons();
     
     document.getElementById("placeholder").remove(); // Remove placeholder text saying JS might be borked
-    this.menu_container.append(this.splash_logo, this.play_button, this.settings_button)
+    this.menu_container.append(this.wrap(this.splash_logo), this.wrap(this.play_button, this.settings_button))
     this.container_pointer.append(this.menu_container);
 
     }   
 
     createLogo() {
         this.splash_logo = document.createElement("img"); this.splash_logo.src = "assets/superlowquality logo.png";
+        this.splash_logo = this.splash_logo;
+    }
+    wrap(item, item2, item3) {
+        let wrapper = document.createElement("div");
+        wrapper.className = "wrapperBox";
+        wrapper.append(item);
+        if(item2) {wrapper.append(item2);}
+        if(item3) {wrapper.append(item3);}
+        return wrapper;
     }
 
     createContainer() {
@@ -58,5 +67,6 @@ export default class menu_controller {
     destroy() {
         document.getElementById("container").replace(menu_container, "")
     }
+
 
 };
