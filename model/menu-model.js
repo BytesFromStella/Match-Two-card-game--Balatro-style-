@@ -1,1 +1,8 @@
-game_state, current_location = false
+export default class menu_model {
+    constructor() {
+        this.gameState = "menu";
+    }
+    
+    
+
+}
